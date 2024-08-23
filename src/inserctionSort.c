@@ -18,7 +18,7 @@ void deletar() {
     
 }
 
-void ordenar() {
+void ordenarPorInserction() {
     
 }
 
