@@ -1,25 +1,24 @@
 #include <stdio.h>
-#include "../includes/principalHeader.h"
 #include "../includes/inserctionSortHeader.h"
 
-void criar() {
-    
+void criarInserction() {
+    puts("criar");
 }
 
-void ler() {
-    
+void lerInserction() {
+    puts("ler");
 }
 
-void atualizar() {
-    
+void atualizarInserction() {
+    puts("atualizar");
 }
 
-void deletar() {
-    
+void deletarInserction() {
+    puts("deletar");
 }
 
 void ordenarPorInserction() {
-    
+    puts("ordenarPorInsercao");
 }
 
 void inserctionSort() {

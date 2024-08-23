@@ -1,25 +1,24 @@
 #include <stdio.h>
 #include "../includes/selectionSortHeader.h"
-#include "../includes/principalHeader.h"
 
-void criar() {
-    
+void criarSelection() {
+    puts("criar");
 }
 
-void ler() {
-    
+void lerSelection() {
+    puts("ler");
 }
 
-void atualizar() {
-    
+void atualizarSelection() {
+    puts("atualizar");
 }
 
-void deletar() {
-    
+void deletarSelection() {
+    puts("deletar");
 }
 
 void ordenarPorSelection() {
-
+    puts("ordenarPorSelecao");
 }
 
 void selectionSort() {
