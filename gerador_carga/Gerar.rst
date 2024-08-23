@@ -1,4 +1,5 @@
-# gerador.c
+gerador.c
+=========
 
 Usado para gerar entradas estáticas e dinâmicas de dados
 
