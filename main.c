@@ -4,12 +4,19 @@
 #include "./includes/selectionSortHeader.h"
 
 int main() {
-    int escolha = menuPrincipal();
+    while (1) {
+        int algoritmo = escolherAlgoritmo();
 
-    if (escolha == 6)
-        insertionSort();
-    else if (escolha == 7)
-        selectionSort();
+        if (algoritmo == 1)
+            insertionSort();
+        else if (algoritmo == 2)
+            selectionSort();
+        else if (algoritmo == 3)
+            break;
+        else
+            printf("ERRO: EXECUTE CORRETAMENTE A ESCOLHA");
+    }
+    puts("FINALIZADO!!!!");
 
     return 0;
 }
