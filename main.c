@@ -1,14 +1,14 @@
 #include <stdio.h>
-#include "src/menu.c"
-#include "src/inserctionSort.c"
-#include "src/selectionSort.c"
+#include "./includes/menus.h"
+#include "./includes/insertionSortHeader.h"
+#include "./includes/selectionSortHeader.h"
 
 int main() {
-    int escolha = menu();
+    int escolha = menuPrincipal();
 
-    if (escolha == 5)
-        inserctionSort();
-    else if (escolha == 6)
+    if (escolha == 6)
+        insertionSort();
+    else if (escolha == 7)
         selectionSort();
 
     return 0;
