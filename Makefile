@@ -1,16 +1,24 @@
-INCLUDE_FOLDERS="/includes"
-BIN_FOLDER="bins"
-MAIN_CODE="main"
+all: obj bin main.bin
+	./bin/main.bin
 
-all:
-	# criar pasta de binarios caso nao existir
-	mkdir -p ${BIN_FOLDER}
+main.bin: insertionSort.o selectionSort.o menus.o main.o
+	gcc -Iincludes -c main.c -o bin/main.bin
+	gcc -Iincludes objects/insertionSort.o objects/selectionSort.o objects/menus.o objects/main.o -o bin/main.bin
 
-	# compilar main
-	gcc ${MAIN_CODE}.c -I${INCLUDE_FOLDERS} -o ${BIN_FOLDER}/${MAIN_CODE}.bin
+insertionSort.o:
+	gcc -Iincludes -c src/insertionSort.c -o objects/insertionSort.o
 
-	# compilar geradorCarga
-	gcc ./geradorCarga/geradorCarga.c -I${INCLUDE_FOLDERS} -o ${BIN_FOLDER}/geradorCarga.bin
-	
-	reset
-	./${BIN_FOLDER}/${MAIN_CODE}.bin
+selectionSort.o:
+	gcc -Iincludes -c src/selectionSort.c -o objects/selectionSort.o
+
+menus.o:
+	gcc -Iincludes -c src/menus.c -o objects/menus.o
+
+main.o:
+	gcc -Iincludes -c main.c -o objects/main.o
+
+obj:
+	mkdir -p ./objects
+
+bin:
+	mkdir -p ./bin
