@@ -29,55 +29,19 @@ int gerarSalario(struct FuncionariosInsertion* funcionario, int min, int max) {
 void geradorCarga(int carga, struct FuncionariosInsertion** novoFuncionario, int* qttFuncionario) {
     srand(time(NULL));
 
-    int numNomes = 0;          // Número de nomes a serem gerados
-    int tamanhoMinNome = 0;    // Tamanho mínimo de cada nome
-    int tamanhoMaxNome = 0;    // Tamanho máximo de cada nome
-    int salarioMin = 0;        // Salário mínimo
-    int salarioMax = 0;        // Salário máximo
+    int numNomes = 0;           // qtd de nomes gerados
+    int tamanhoMinNome = 1;     // caractere minimo de nome
+    int tamanhoMaxNome = 100;   // caractere maximo de nome
+    int salarioMin = 0;         // salario minimo
+    int salarioMax = 100000;    // salario maximo
 
     switch (carga) {
-        case 1:
-            numNomes = 100;
-            tamanhoMinNome = 1;
-            tamanhoMaxNome = 100;
-            salarioMin = 1;
-            salarioMax = 100;
-            break;
-
-        case 2:
-            numNomes = 1000;
-            tamanhoMinNome = 1;
-            tamanhoMaxNome = 1000;
-            salarioMin = 1;
-            salarioMax = 1000;
-            break;
-
-        case 3:
-            numNomes = 10000;
-            tamanhoMinNome = 1;
-            tamanhoMaxNome = 10000;
-            salarioMin = 1;
-            salarioMax = 10000;
-            break;
-
-        case 4:
-            numNomes = 100000;
-            tamanhoMinNome = 1;
-            tamanhoMaxNome = 100000;
-            salarioMin = 1;
-            salarioMax = 100000;
-            break;
-
-        case 5:
-            numNomes = 1000000;
-            tamanhoMinNome = 1;
-            tamanhoMaxNome = 1000000;
-            salarioMin = 1;
-            salarioMax = 1000000;
-            break;
-        
-        default:
-            break;
+        case 1: numNomes = 100; break;
+        case 2: numNomes = 1000; break;
+        case 3: numNomes = 10000; break;
+        case 4: numNomes = 100000; break;
+        case 5: numNomes = 1000000; break;
+        default: puts("Carga inválida."); return;
     }
 
     int qtdAtual = *qttFuncionario;
@@ -85,9 +49,9 @@ void geradorCarga(int carga, struct FuncionariosInsertion** novoFuncionario, int
     alocarFuncionarioInsertion(novoFuncionario, qttFuncionario);
 
     for (int i = qtdAtual; i < *qttFuncionario; i++) {
-        gerarNome(&(*novoFuncionario)[i], tamanhoMinNome, tamanhoMaxNome); // Gera o nome de tamanho variável
+        gerarNome(&(*novoFuncionario)[i], tamanhoMinNome, tamanhoMaxNome); // gera o nome com um tamanho para cada funcionario
 
-        gerarSalario(&(*novoFuncionario)[i], salarioMin, salarioMax); // Gera o salário
+        gerarSalario(&(*novoFuncionario)[i], salarioMin, salarioMax); // Gera o salario para cada funcionario
 
         printf("gerando: ");
         printf("%i ", i);

@@ -29,7 +29,17 @@ void alocarFuncionarioInsertion(struct FuncionariosInsertion** novoFuncionario, 
         *novoFuncionario = (struct FuncionariosInsertion*)malloc(*qtdFuncionario * sizeof(struct FuncionariosInsertion));
     } else {
         puts("\nREORGANIZANDO ARMAZENAMENTO PARA FUNCIONARIOS");
-        *novoFuncionario = (struct FuncionariosInsertion*)realloc(*novoFuncionario, (*qtdFuncionario) * sizeof(struct FuncionariosInsertion));
+        struct FuncionariosInsertion* temp = realloc(*novoFuncionario, (*qtdFuncionario) * sizeof(struct FuncionariosInsertion));
+        
+        if (temp == NULL) {
+            free(*novoFuncionario);
+            *novoFuncionario = NULL;
+            puts("OCORREU UM PROBLEMA PARA EXTENDER ESPACO PARA NOVOS FUNCIONARIOS");
+            exit(EXIT_FAILURE);
+        } else {
+            *novoFuncionario = temp;
+            puts("ESPACO DE FUNCIONARIOS REORGANIZADO\n");
+        }
     }
 
     verificarAlocacao(novoFuncionario);
@@ -188,11 +198,10 @@ void deletarFuncionarioInsertion(struct FuncionariosInsertion** funcionarios, in
 }
 
 void ordenarPorInsertion(struct FuncionariosInsertion** funcionarios, int* qttFuncionario) {
-    clock_t tempoInicio, tempoFinal;
-    double tempoGasto;
+    clock_t tempoInicial, tempoFinal; // duas variáveis para guardar o registro clock
 
-    // Captura o tempo inicial
-    tempoInicio = clock();
+    tempoInicial = clock(); // pega esse instante
+    printf("tempo antes de ordenar por insertion sort: %.3f\n", (float)tempoInicial);
 
     // Insertion sort para ordenar do maior para o menor
     for (int i = 1; i < *qttFuncionario; i++) {
@@ -208,14 +217,12 @@ void ordenarPorInsertion(struct FuncionariosInsertion** funcionarios, int* qttFu
         (*funcionarios)[j + 1] = key;
     }
 
-    // Captura o tempo final
-    tempoFinal = clock();
+    tempoFinal = clock(); // pega esse
+    printf("tempo depois de ordenar por insertion sort: %.3f\n", (float)tempoFinal);
 
-    // Calcula o tempo gasto
-    tempoGasto = (double)(tempoFinal - tempoInicio) / CLOCKS_PER_SEC;
-
-    // Exibe o tempo gasto
-    printf("Tempo de execução: %.2f segundos\n", tempoGasto);
+    // tira a diferença e divide por 1000000.0F
+    float diferenca = (((float)tempoFinal - (float)tempoInicial) / 1000000.0F ); // mile segundos
+    printf("o tempo real que passou para ordenar: %.3f\n",diferenca);
 }
 
 
@@ -258,8 +265,9 @@ void insertionSort() {
 
         } else if (escolha == 7) {
             limparTela();
-            desalocarFuncionarioInsertion(&funcionarios);
             puts("VOLTANDO......");
+            puts("OS FUNCIONARIOS ARMAZENADOS FORAM PERDIDOS!");
+            desalocarFuncionarioInsertion(&funcionarios);
             break;
         }
     }
