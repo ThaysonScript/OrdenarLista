@@ -22,6 +22,7 @@ int menuPrincipalInsertion() {
 
     printf("\t\t\t\t\t\tEscolha a entrada: ");
     scanf("%i", &escolha);
+    getchar();
 
     switch (escolha) {
         case 1:
@@ -83,6 +84,7 @@ int menuPrincipalSelection() {
 
     printf("\t\t\t\t\t\tEscolha a entrada: ");
     scanf("%i", &escolha);
+    getchar();
 
     switch (escolha) {
         case 1:

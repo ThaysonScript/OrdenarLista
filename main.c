@@ -9,10 +9,13 @@ int main() {
 
         if (algoritmo == 1)
             insertionSort();
+
         else if (algoritmo == 2)
             selectionSort();
+
         else if (algoritmo == 3)
             break;
+            
         else
             printf("ERRO: EXECUTE CORRETAMENTE A ESCOLHA");
     }
