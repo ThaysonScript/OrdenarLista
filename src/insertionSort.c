@@ -6,11 +6,11 @@
 #include "../includes/insertionSortHeader.h"
 #include "../includes/geradorCargaInsertion.h"
 
-void limparTela() {
+void limparTelaInsertion() {
     system(COMANDO_LIMPAR);
 }
 
-void verificarAlocacao(struct FuncionariosInsertion** funcionarioInsertion) {
+void verificarAlocacaoInsertion(struct FuncionariosInsertion** funcionarioInsertion) {
     if (*funcionarioInsertion == NULL) {
         puts("OCORREU UM PROBLEMA PARA EXTENDER ESPACO PARA NOVOS FUNCIONARIOS");
         exit(EXIT_FAILURE);
@@ -42,7 +42,7 @@ void alocarFuncionarioInsertion(struct FuncionariosInsertion** novoFuncionario, 
         }
     }
 
-    verificarAlocacao(novoFuncionario);
+    verificarAlocacaoInsertion(novoFuncionario);
 }
 
 // ----------------------------------------------- DESALOCAR ESTRUTURA
@@ -55,7 +55,7 @@ void desalocarFuncionarioInsertion(struct FuncionariosInsertion** funcionarios) 
 
 // ----------------------------------------------- OPERACOES DE C.R.U.D
 int criarFuncionarioInsertion(struct FuncionariosInsertion** novoFuncionario, int* qttFuncionario) {
-    limparTela();
+    limparTelaInsertion();
     int tempQtt;
     char novoNome[NOME];
     double novoSalario;
@@ -103,7 +103,7 @@ void lerFuncionarioInsertion(struct FuncionariosInsertion** funcionarios, int* q
 }
 
 void atualizarFuncionarioInsertion(struct FuncionariosInsertion** funcionarios, int* qttFuncionario) {
-    limparTela();
+    limparTelaInsertion();
     char nomeFuncionario[NOME], novoNome[NOME];
     double novoSalario;
     int escolha;
@@ -145,7 +145,7 @@ void atualizarFuncionarioInsertion(struct FuncionariosInsertion** funcionarios, 
                 (*funcionarios)[i].salario = novoSalario;
             }
 
-            limparTela();
+            limparTelaInsertion();
             puts("---------------------- LISTANDO FUNCIONARIOS ATUALIZADOS ---------------------");
             lerFuncionarioInsertion(funcionarios, qttFuncionario);
             puts("------------------------------------------------------------------------------");
@@ -159,7 +159,7 @@ void atualizarFuncionarioInsertion(struct FuncionariosInsertion** funcionarios, 
 }
 
 void deletarFuncionarioInsertion(struct FuncionariosInsertion** funcionarios, int* qttFuncionario) {
-    limparTela();
+    limparTelaInsertion();
     char nomeFuncionario[NOME];
     int encontrado = 0;
 
@@ -228,7 +228,7 @@ void ordenarPorInsertion(struct FuncionariosInsertion** funcionarios, int* qttFu
 
 // ----------------------------------------------- CHAMADA PRINCIPAL
 void insertionSort() {
-    limparTela();
+    limparTelaInsertion();
 
     int qttFuncionarios = 0;
     struct FuncionariosInsertion* funcionarios = NULL;
@@ -240,7 +240,7 @@ void insertionSort() {
             criarFuncionarioInsertion(&funcionarios, &qttFuncionarios);
             
         } else if (escolha == 2) {
-            limparTela();
+            limparTelaInsertion();
             lerFuncionarioInsertion(&funcionarios, &qttFuncionarios);
         
         } else if (escolha == 3) {
@@ -256,7 +256,7 @@ void insertionSort() {
                 geradorCarga(carga, &funcionarios, &qttFuncionarios);
 
             } else {
-                limparTela();
+                limparTelaInsertion();
                 puts("VOLTANDO.......");
             }
 
@@ -264,7 +264,7 @@ void insertionSort() {
             ordenarPorInsertion(&funcionarios, &qttFuncionarios);
 
         } else if (escolha == 7) {
-            limparTela();
+            limparTelaInsertion();
             puts("VOLTANDO......");
             puts("OS FUNCIONARIOS ARMAZENADOS FORAM PERDIDOS!");
             desalocarFuncionarioInsertion(&funcionarios);

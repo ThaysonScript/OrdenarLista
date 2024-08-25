@@ -1,5 +1,5 @@
-#ifndef GERADOR_CARGA_H
-#define GERADOR_CARGA_H
+#ifndef GERADOR_CARGA_INSERTION_H
+#define GERADOR_CARGA_INSERTION_H
 
 // Função para gerar um nome aleatório
 void gerarNome(struct FuncionariosInsertion* funcionario, int tamanhoMin, int tamanhoMax);

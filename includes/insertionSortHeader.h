@@ -21,7 +21,7 @@ struct FuncionariosInsertion {
 void alocarFuncionarioInsertion(struct FuncionariosInsertion** novoFuncionario, int* qtdFuncionario);
 
 /** @brief Verificar alocacao */
-void verificarAlocacao(struct FuncionariosInsertion** funcionarioInsertion);
+void verificarAlocacaoInsertion(struct FuncionariosInsertion** funcionarioInsertion);
 
 /** @brief Desalocar estrutura de FuncionariosInsertion
  *  @param struct FuncionariosInsertion *funcionario
@@ -38,7 +38,7 @@ void deletarFuncionarioInsertion(struct FuncionariosInsertion** funcionarios, in
 void ordenarPorInsertion(struct FuncionariosInsertion** funcionarios, int* qttFuncionario);
 
 // limpar termianl
-void limparTela();
+void limparTelaInsertion();
 
 // chamada principal
 void insertionSort();
