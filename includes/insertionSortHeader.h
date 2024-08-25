@@ -40,6 +40,8 @@ void ordenarPorInsertion();
 // limpar termianl
 void limparTela();
 
+void medirTempoExecucao();
+
 // chamada principal
 void insertionSort();
 

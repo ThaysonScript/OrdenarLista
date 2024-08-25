@@ -1,11 +1,34 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "../includes/menus.h"
 #include "../includes/insertionSortHeader.h"
+#include "../includes/geradorCargaInsertion.h"
 
 void limparTela() {
     system(COMANDO_LIMPAR);
+}
+
+// Função para medir e exibir o tempo de execução
+void medirTempoExecucao() {
+    clock_t tempoInicio, tempoFinal;
+    double tempoGasto;
+
+    // Captura o tempo inicial
+    tempoInicio = clock();
+
+    // Executa a função
+    insertionSort();
+
+    // Captura o tempo final
+    tempoFinal = clock();
+
+    // Calcula o tempo gasto
+    tempoGasto = (double)(tempoFinal - tempoInicio) / CLOCKS_PER_SEC;
+
+    // Exibe o tempo gasto
+    printf("Tempo de execução: %.2f segundos\n", tempoGasto);
 }
 
 void verificarAlocacao(struct FuncionariosInsertion** funcionarioInsertion) {
@@ -35,7 +58,7 @@ void alocarFuncionarioInsertion(struct FuncionariosInsertion** novoFuncionario, 
 
 // ----------------------------------------------- DESALOCAR ESTRUTURA
 void desalocarFuncionarioInsertion(struct FuncionariosInsertion** funcionarios) {
-    if (*funcionarios != NULL) {
+    if (funcionarios != NULL && *funcionarios != NULL) {
         free(*funcionarios);
         *funcionarios = NULL;
     }
@@ -213,8 +236,23 @@ void insertionSort() {
         } else if (escolha == 4) {
             deletarFuncionarioInsertion(&funcionarios, &qttFuncionarios);
 
-        } else if (escolha == 8) {
+        } else if (escolha == 5) {
+            int carga = desejaGerarDados();
+
+            if (carga >= 1 && carga <= 5) {
+                geradorCarga(carga, &funcionarios, &qttFuncionarios);
+
+            } else {
+                limparTela();
+                puts("VOLTANDO.......");
+            }
+
+        } else if (escolha == 6) {
+            //
+
+        } else if (escolha == 7) {
             limparTela();
+            desalocarFuncionarioInsertion(&funcionarios);
             puts("VOLTANDO......");
             break;
         }

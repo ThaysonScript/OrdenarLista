@@ -4,7 +4,7 @@
 int menuPrincipalInsertion() {
     int escolha;
 
-    puts("\t\t\t\t\t\t---------------- GERENCIAR FUNCIONARIOS --------------");
+    puts("\t\t\t\t\t\t---------------- GERENCIAR FUNCIONARIOS POR INSERTION SORT --------------");
     puts("\t\t\t\t\t\t--------- C.R.U.D");
     puts("\t\t\t\t\t\t[1] - CRIAR FUNCIONARIO");
     puts("\t\t\t\t\t\t[2] - LER FUNCIONARIO");
@@ -17,8 +17,8 @@ int menuPrincipalInsertion() {
     puts("\t\t\t\t\t\t--------- ORDENAR");
     puts("\t\t\t\t\t\t[6] - INSERTION SORT");
     puts("");
-    puts("\t\t\t\t\t\t[8] -------- VOLTAR");
-    puts("\t\t\t\t\t\t------------------------------------------------------");
+    puts("\t\t\t\t\t\t[7] -------- VOLTAR");
+    puts("\t\t\t\t\t\t-------------------------------------------------------------------------");
 
     printf("\t\t\t\t\t\tEscolha a entrada: ");
     scanf("%i", &escolha);
@@ -66,7 +66,7 @@ int menuPrincipalInsertion() {
 int menuPrincipalSelection() {
     int escolha;
 
-    puts("\t\t\t\t\t\t---------------- GERENCIAR FUNCIONARIOS --------------");
+    puts("\t\t\t\t\t\t---------------- GERENCIAR FUNCIONARIOS POR SELECTION SORT --------------");
     puts("\t\t\t\t\t\t--------- C.R.U.D");
     puts("\t\t\t\t\t\t[1] - CRIAR FUNCIONARIO");
     puts("\t\t\t\t\t\t[2] - LER FUNCIONARIO");
@@ -77,10 +77,10 @@ int menuPrincipalSelection() {
     puts("\t\t\t\t\t\t[5] - REALIZAR PRE DADOS");
     puts("");
     puts("\t\t\t\t\t\t--------- ORDENAR");
-    puts("\t\t\t\t\t\t[7] - SELECTION SORT");
+    puts("\t\t\t\t\t\t[6] - SELECTION SORT");
     puts("");
-    puts("\t\t\t\t\t\t[8] -------- VOLTAR");
-    puts("\t\t\t\t\t\t------------------------------------------------------");
+    puts("\t\t\t\t\t\t[7] -------- VOLTAR");
+    puts("\t\t\t\t\t\t-------------------------------------------------------------------------");
 
     printf("\t\t\t\t\t\tEscolha a entrada: ");
     scanf("%i", &escolha);
