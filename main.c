@@ -8,7 +8,8 @@ int main() {
         int algoritmo = escolherAlgoritmo();
 
         if (algoritmo == 1)
-            insertionSort();
+            medirTempoExecucao();
+            // insertionSort();
 
         else if (algoritmo == 2)
             selectionSort();
