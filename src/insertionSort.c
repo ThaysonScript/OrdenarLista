@@ -10,27 +10,6 @@ void limparTela() {
     system(COMANDO_LIMPAR);
 }
 
-// Função para medir e exibir o tempo de execução
-void medirTempoExecucao() {
-    clock_t tempoInicio, tempoFinal;
-    double tempoGasto;
-
-    // Captura o tempo inicial
-    tempoInicio = clock();
-
-    // Executa a função
-    insertionSort();
-
-    // Captura o tempo final
-    tempoFinal = clock();
-
-    // Calcula o tempo gasto
-    tempoGasto = (double)(tempoFinal - tempoInicio) / CLOCKS_PER_SEC;
-
-    // Exibe o tempo gasto
-    printf("Tempo de execução: %.2f segundos\n", tempoGasto);
-}
-
 void verificarAlocacao(struct FuncionariosInsertion** funcionarioInsertion) {
     if (*funcionarioInsertion == NULL) {
         puts("OCORREU UM PROBLEMA PARA EXTENDER ESPACO PARA NOVOS FUNCIONARIOS");
@@ -208,10 +187,37 @@ void deletarFuncionarioInsertion(struct FuncionariosInsertion** funcionarios, in
     }
 }
 
-void ordenarPorInsertion() {
-    limparTela();
-    puts("ordenarPorInsercao");
+void ordenarPorInsertion(struct FuncionariosInsertion** funcionarios, int* qttFuncionario) {
+    clock_t tempoInicio, tempoFinal;
+    double tempoGasto;
+
+    // Captura o tempo inicial
+    tempoInicio = clock();
+
+    // Insertion sort para ordenar do maior para o menor
+    for (int i = 1; i < *qttFuncionario; i++) {
+        struct FuncionariosInsertion key = (*funcionarios)[i];
+        int j = i - 1;
+
+        // Move os elementos de funcionarios[0..i-1] que são menores que key.salario,
+        // para uma posição à frente de sua posição atual
+        while (j >= 0 && (*funcionarios)[j].salario < key.salario) {
+            (*funcionarios)[j + 1] = (*funcionarios)[j];
+            j = j - 1;
+        }
+        (*funcionarios)[j + 1] = key;
+    }
+
+    // Captura o tempo final
+    tempoFinal = clock();
+
+    // Calcula o tempo gasto
+    tempoGasto = (double)(tempoFinal - tempoInicio) / CLOCKS_PER_SEC;
+
+    // Exibe o tempo gasto
+    printf("Tempo de execução: %.2f segundos\n", tempoGasto);
 }
+
 
 // ----------------------------------------------- CHAMADA PRINCIPAL
 void insertionSort() {
@@ -248,7 +254,7 @@ void insertionSort() {
             }
 
         } else if (escolha == 6) {
-            //
+            ordenarPorInsertion(&funcionarios, &qttFuncionarios);
 
         } else if (escolha == 7) {
             limparTela();

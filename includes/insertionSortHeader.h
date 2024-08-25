@@ -35,12 +35,10 @@ void atualizarFuncionarioInsertion(struct FuncionariosInsertion** funcionarios, 
 void deletarFuncionarioInsertion(struct FuncionariosInsertion** funcionarios, int* qttFuncionario);
 
 // algoritmo para ordenar
-void ordenarPorInsertion();
+void ordenarPorInsertion(struct FuncionariosInsertion** funcionarios, int* qttFuncionario);
 
 // limpar termianl
 void limparTela();
-
-void medirTempoExecucao();
 
 // chamada principal
 void insertionSort();
